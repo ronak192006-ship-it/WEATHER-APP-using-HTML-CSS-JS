@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather app</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- import cdns  for icons -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css" integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    
+<body>
+     <!-- head of weather app -->
+    <div class="header">
+        <h1>Weather App</h1>
+    </div>
+
+
+    <div class="container">
+        <!-- input and button -->
+    <div class="input">
+    <span class="fas fa-location-arrow"></span>
+    <input type="text" class="search-input" placeholder="Search here">
+    <span class="fas fa-search"></span>
+    </div>
+
+    <!-- weather details -->
+    <div class="weather-box">
+        <div class="box">
+            <div class="weather-info">
+                <div class="weather">
+                    <img src="cloud.png" alt="weather icon" class="weather-icon">
+                    <p class="temperature">16<span>°C</span></p>
+                    <p class="description">Cloudy</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="weather-details">
+        <!-- humidity -->
+        <div class="humidity">
+            <span class="humidity-icon">
+            <i class="fas fa-water"></i>
+            </span> 
+
+            <div class="text">
+                <div class="info-humidity">
+                    <span class="humidity-value">80</span>
+                </div>
+                <p>Humidity</p>
+            </div>
+        </div>
+
+        <!-- wind -->
+        <div class="wind">
+            <span class="wind-icon">
+            <i class="fas fa-wind"></i>
+            </span>
+            <div class="text">
+                <div class="info-wind">
+                    <span class="wind-value">10Km/h</span>
+                    <p>Wind</p>
+                </div>
+                
+            </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
