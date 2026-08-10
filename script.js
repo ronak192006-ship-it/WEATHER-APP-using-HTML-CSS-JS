@@ -52,7 +52,7 @@ async function getweather(city){
         humidity_value.textContent = `${data.main.humidity}%`;
 
         //wind speed
-        wind_value.textContent = `${data.wind.speed}km/h`;
+        wind_value.textContent = `${MATH.round(data.wind.speed)}km/h`;
 
 
         //weather image
