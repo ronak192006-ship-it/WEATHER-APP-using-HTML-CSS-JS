@@ -21,8 +21,8 @@ const API_KEY = "c877e5f885035b065e4e2c2277154729";
 
 //Get Weather DATA
 
-async function getweather(city){
-    if(city === ""){
+async function getweather(city) {
+    if (city === "") {
         alert("Please Enter a City!!!");
         return;
     }
@@ -33,10 +33,10 @@ async function getweather(city){
 
         //check city/API request failded!!
 
-       if (!response.ok) {
-         const errorData = await response.json();
-         console.log(errorData);
-         throw new Error(errorData.message);
+        if (!response.ok) {
+            const errorData = await response.json();
+            console.log(errorData);
+            throw new Error(errorData.message);
         }
 
         const data = await response.json();
@@ -52,46 +52,71 @@ async function getweather(city){
         humidity_value.textContent = `${data.main.humidity}%`;
 
         //wind speed
-        wind_value.textContent = `${MATH.round(data.wind.speed)}km/h`;
+        wind_value.textContent = `${Math.round(data.wind.speed)} km/h`;
 
+        // weather image + background
 
-        //weather image
         const weathercondition = data.weather[0].main;
+        const body = document.body;
 
-        if(weathercondition === "Clear"){
+        if (weathercondition === "Clear") {
             weather_icon.src = "clear.png";
+            body.style.setProperty(
+                "--weather-bg",
+                "url('clear-background.png')"
+            );
         }
-        else if(weathercondition === "Clouds"){
+        else if (weathercondition === "Clouds") {
             weather_icon.src = "cloud.png";
+            body.style.setProperty(
+                "--weather-bg",
+                "url('cloud-background.png')"
+            );
         }
-        else if(weathercondition === "Snow"){
+        else if (weathercondition === "Snow") {
             weather_icon.src = "snow.png";
+            body.style.setProperty(
+                "--weather-bg",
+                "url('snow-background.png')"
+            );
         }
-        else if(weathercondition === "Rain"){
+        else if (weathercondition === "Rain") {
             weather_icon.src = "rain.png";
+            body.style.setProperty(
+                "--weather-bg",
+                "url('rain-background.png')"
+            );
         }
-        else if(weathercondition === "Mist"){
+        else if (weathercondition === "Mist") {
             weather_icon.src = "mist.png";
+            body.style.setProperty(
+                "--weather-bg",
+                "url('mist-background.png')"
+            );
         }
-        else{
-            weather_icon.src = "404.png"
+        else {
+            weather_icon.src = "404.png";
+            body.style.setProperty(
+                "--weather-bg",
+                "url('404.png')"
+            );
         }
     }
-        catch(error){
-           console.log("ERROR:", error.message);
-           alert(error.message);
-        }
+    catch (error) {
+        console.log("ERROR:", error.message);
+        alert(error.message);
+    }
 }
 
 //search button
-search_button.addEventListener("click", () =>{
+search_button.addEventListener("click", () => {
     const city = search_input.value.trim();
     getweather(city);
 });
 
 //search input
-search_input.addEventListener("keydown", (e) =>{
-    if(e.key === "Enter"){
+search_input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
         const city = search_input.value.trim();
         getweather(city);
     }
